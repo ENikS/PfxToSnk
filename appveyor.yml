@@ -14,7 +14,7 @@ dotnet_csproj:
   package_version: '{version}'
 artifacts:
 - path: '**\*.nupkg'
-  name: 'CommonServiceLocator'
+  name: 'PfxToSnk'
 deploy:
 - provider: GitHub
   force_update: true
