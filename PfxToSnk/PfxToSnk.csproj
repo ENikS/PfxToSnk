@@ -2,7 +2,18 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>ENikS</Authors>
+    <Company>ENIkS</Company>
+    <Product>PFX To SNK certificate converter</Product>
+    <Description>Converts public and ptivate keys from PFX certificate into SNK certificate.</Description>
+    <PackageReleaseNotes>This converter allows extracton of encrypted certificates to be used to sign assemblies during build.</PackageReleaseNotes>
+    <Copyright>Copyright © ENikS 2017</Copyright>
+    <PackageLicenseUrl>https://github.com/ENikS/PfxToSnk/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/ENikS/PfxToSnk</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ENikS/PfxToSnk</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
   </PropertyGroup>
 
 </Project>
