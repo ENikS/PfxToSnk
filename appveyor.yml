@@ -1,20 +1,31 @@
-version: 1.0.{build}
+version: 0.0.0
 image: Visual Studio 2017
 configuration: Release
 platform: Any CPU
+
+install: 
+  - ps: $env:package_version = (Get-Content -Raw -Path package.json | ConvertFrom-Json).version 
+  - ps: Update-AppveyorBuild -Version "$env:package_version"
+#  - ps: Update-AppveyorBuild -Version "$env:package_version-$env:APPVEYOR_BUILD_NUMBER"
+
 before_build:
 - cmd: dotnet restore
+
 build:
   parallel: true
   verbosity: minimal
+
 dotnet_csproj:
   patch: true
   file: '**\*.csproj'
   version: '{version}'
-  package_version: $(appveyor_build_version)
+  package_version: '{version}'
+  assembly_file_version: $(appveyor_build_version)
+
 artifacts:
 - path: '**\*.nupkg'
   name: 'PfxToSnk'
+
 deploy:
   provider: NuGet
   api_key:
