@@ -1,17 +1,18 @@
-version: 0.0.0
+version: 0.0.0.'{version}'
 image: Visual Studio 2017
 configuration: Release
 platform: Any CPU
 
 install: 
-  - ps: $env:package_version = (Get-Content -Raw -Path package.json | ConvertFrom-Json).version 
+  - ps: $env:build_version = (Get-Content -Raw -Path package.json | ConvertFrom-Json).version 
   - ps: Update-AppveyorBuild -Version "$env:package_version"
-#  - ps: Update-AppveyorBuild -Version "$env:package_version-$env:APPVEYOR_BUILD_NUMBER"
+#  - ps: Update-AppveyorBuild -Version "$env:$(build_version).$env:APPVEYOR_BUILD_NUMBER"
 
 before_build:
 - cmd: dotnet restore
 - cmd: set %version%
 - cmd: set %appveyor_build_version%
+- cmd: set %APPVEYOR_BUILD_NUMBER%
 
 build:
   parallel: true
@@ -20,9 +21,9 @@ build:
 dotnet_csproj:
   patch: true
   file: '**\*.csproj'
-  version: '{version}'
-  package_version: '{version}'
-  assembly_file_version: '{version}'
+  version: $(build_version)
+  package_version: $(build_version)
+  #assembly_file_version: '{version}'
     
 artifacts:
 - path: '**\*.nupkg'
