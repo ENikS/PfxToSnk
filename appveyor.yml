@@ -1,4 +1,4 @@
-version: 0.0.0.'{version}'
+#version: 0.0.0.'{version}'
 image: Visual Studio 2017
 configuration: Release
 platform: Any CPU
