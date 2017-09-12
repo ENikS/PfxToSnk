@@ -20,7 +20,7 @@ dotnet_csproj:
   file: '**\*.csproj'
   version: '{version}'
   package_version: '{version}'
-  assembly_file_version: $(appveyor_build_version)
+  assembly_file_version: '$(appveyor_build_version)'
 
 artifacts:
 - path: '**\*.nupkg'
