@@ -1,4 +1,3 @@
-#version: 0.0.0.'{version}'
 image: Visual Studio 2017
 configuration: Release
 platform: Any CPU
@@ -20,18 +19,18 @@ dotnet_csproj:
   patch: true
   file: '**\*.csproj'
   version: $(build_version)
-  package_version: $(build_version)
+  package_version: $(appveyor_build_version)
   #assembly_file_version: '{version}'
     
 artifacts:
-- path: '**\*.nupkg'
+- path: '**\PfxToSnk.*.nupkg'
   name: 'PfxToSnk'
 
 deploy:
   provider: NuGet
   api_key:
     secure: 4ecLISsp0ABX9R23S/IMP0HP7bMftyHBZBDU0LEvhgJP/lhTTUvmOl1SSZNM6U/4
-  skip_symbols: false
+  skip_symbols: true
   artifact: /.*\.nupkg/
   on:
     branch: master                 # release from master branch only
