@@ -10,9 +10,7 @@ install:
 
 before_build:
 - cmd: dotnet restore
-- cmd: set %version%
-- cmd: set %appveyor_build_version%
-- cmd: set %APPVEYOR_BUILD_NUMBER%
+- cmd: set 
 
 build:
   parallel: true
