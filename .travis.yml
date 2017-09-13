@@ -5,6 +5,7 @@ mono: none
 dotnet: 2.0.0
 
 script:
+ - dotnet install Microsoft.TargetingPack.NETFramework.v4.6.2
  - dotnet restore
  - dotnet build PfxToSnk.sln
  - dotnet test
