@@ -1,9 +1,7 @@
 sudo: false
 language: csharp
 
-matrix:
-  include:
-    - dotnet: 2.0.0
-    - mono: latest
+mono: none
+dotnet: 2.0.0
 
 solution: PfxToSnk.sln
