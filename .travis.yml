@@ -7,7 +7,6 @@ dotnet: 2.0.0
 install:
 
 script:
- - dotnet add PfxToSnk/PfxToSnk.csproj package Microsoft.TargetingPack.NETFramework.v4.6.1 
  - dotnet restore
- - dotnet build
+ - dotnet build --framework "netcoreapp2.0"
  - dotnet test
