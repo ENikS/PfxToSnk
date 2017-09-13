@@ -9,4 +9,4 @@ install:
 script:
  - dotnet restore
  - dotnet build --framework "netcoreapp2.0"
- - dotnet test
+ 
