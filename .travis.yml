@@ -4,4 +4,7 @@ language: csharp
 mono: none
 dotnet: 2.0.0
 
-solution: PfxToSnk.sln
+script:
+ - dotnet restore
+ - dotnet build PfxToSnk.sln
+ - dotnet test
