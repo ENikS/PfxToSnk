@@ -18,9 +18,5 @@
     <FileVersion>1.0.0.0</FileVersion>
     <Version>1.0.0</Version>    
   </PropertyGroup>
-
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net461' ">
-    <PackageReference Include="Microsoft.TargetingPack.NETFramework.v4.6.1" Version="1.0.1" />
-  </ItemGroup>  
   
 </Project>
